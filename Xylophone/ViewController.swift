@@ -17,34 +17,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func keyPressedC(_ sender: UIButton) {
-        playSound(soundName: "C")
+    @IBAction func keyPressed(_ sender: UIButton) {
+        playSound(soundName: sender.currentTitle!)
+        // Dim the entire button
+        sender.alpha = 0.5
+
+        // Undim it after 1 second (without freezing the app)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            sender.alpha = 1.0
+        }
     }
     
-    @IBAction func keyPressedD(_ sender: UIButton) {
-        playSound(soundName: "D")
-    }
-    
-    @IBAction func keyPressedE(_ sender: UIButton) {
-        playSound(soundName: "E")
-    }
-    
-    @IBAction func keyPressedF(_ sender: UIButton) {
-        playSound(soundName: "F")
-    }
-    
-    @IBAction func keyPressedG(_ sender: UIButton) {
-        playSound(soundName: "G")
-    }
-    
-    @IBAction func keyPressedA(_ sender: Any) {
-        playSound(soundName: "A")
-    }
-    
-    @IBAction func keyPressedB(_ sender: UIButton) {
-        playSound(soundName: "B")
-    }
-    
+  
     
     
     func playSound(soundName: String) {
